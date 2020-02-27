@@ -1,0 +1,540 @@
+@charset "utf-8";
+
+html {
+	font-size:10px; 
+}
+/* ==================== 배경 이미지 ==================== */
+body {
+	background-image: url("images/bus_main.jpg"); /* 이미지 경로 */
+ 	background-repeat: no-repeat; /* 컨텐츠보다 크기가 작을 경우 반복 여부 */
+	background-position: center center; /* 위치 */
+	background-attachment: fixed; /* 스크롤 시 위치(고정) */
+	background-size: cover; /* 반응형 옵션 */
+	background-color:white; /* 이미지 로딩 시 보여줄 색깔 */
+}
+
+
+/* ==================== 1. 로고 ==================== */
+.logo_wrap {
+	position: relative;
+	width: 450px;
+	height: 120px;
+	text-align: center;
+	margin: 50px auto 0px;
+	background-image: url("images/logo.png");
+	background-size: 100%, auto;
+	background-repeat: no-repeat;
+}
+
+
+/* ==================== 2. 노선 검색 결과 & 3. 노선도 ==================== */
+.bus_total_container {
+	position: relative;
+	width: 1110px;
+	height: 700px;
+	margin: 50px auto 0px;
+}
+
+/* ========== 2. 노선 검색 결과 ========== */
+.search_container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 200px;
+	height: 100%;
+	text-align: center;
+}
+/* ===== 2-1) 시도 선택(사실상 필요 없음. 추후 삭제) ===== */
+.search_container .sido {
+    position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 40px;
+	background-color: white;
+	opacity: 0.7;
+	border: none;
+	font-size: 2.3rem;
+	font-family: 'Do Hyeon', sans-serif;
+}
+/* ===== 2-2) 노선 번호 입력 및 제출 ===== */
+.search_container .form_wrap {
+    position: absolute;
+    top: 50px;
+    left: 0;
+	width: 100%;
+	height: 40px;
+	background-color: white;
+	opacity: 0.7;
+}
+/* 입력 */
+.search_container .form_wrap #bus_num{
+	position: absolute;
+	left: 0;
+	width: 170px;
+	height: 100%;
+	text-align: right;
+	font-size: 2.3rem;
+	font-family: 'Do Hyeon', sans-serif;
+	border: 0;
+	outline: 0;
+	padding: 0;
+}
+/* 입력 placeholder*/
+.search_container .form_wrap #bus_num::placeholder{
+	color: black;
+}
+/* 제출 */
+.search_container .form_wrap #btn_search {
+	position: absolute;
+	left: 170px;
+	width: 30px;
+	height: 100%;
+	border: 0;
+	outline: 0;
+	padding: 0;
+}
+/* 제출 icon(돋보기) */
+.search_container .form_wrap #btn_search .icon_search {
+	width: 22px;
+	height: 22px;
+	border: 0;
+	outline: 0;
+}
+/* ===== 2-3) 검색 결과 ===== */
+.search_container .bus_num_result_wrap {
+	position: absolute;
+	top: 100px;
+	left: 0;
+	width: 100%;
+	height: 600px;
+	font-size: 2rem;
+	font-family: 'Do Hyeon', sans-serif;
+	background-color: white;
+	opacity: 0.7;
+	overflow-y: auto;
+}
+/* 검색 결과 스크롤 설정 */
+.bus_num_result_wrap::-webkit-scrollbar {
+    width: 15px;
+}
+.bus_num_result_wrap::-webkit-scrollbar-thumb {
+    background-color: #7F7F7F;
+    border-radius: 20px;
+}
+.bus_num_result_wrap::-webkit-scrollbar-track {
+    background-color: #C4C4C4;
+}
+/* 전체 검색 결과(ul) */
+.search_container .bus_num_result_wrap .bus_num_result {
+	text-align: left;
+	padding-left:10px;
+	list-style: none;
+	margin-top: 10px;
+}
+/* 개별 검색 결과(li) */
+.search_container .bus_num_result_wrap .bus_num_result .bus_num_result_li {
+	position: relative;
+	width: 180px;
+	height: 70px;
+	cursor: pointer;
+}
+/* 개별 검색 결과(li 내 text - 노선 번호 및 담당 지역) */
+.search_container .bus_num_result_wrap .bus_num_result .bus_num_result_li .bus_num_result_li_title {
+	width: 100%;
+	height:25px;
+	font-size: 2rem;
+	font-family: 'Do Hyeon', sans-serif;
+	overflow: hidden;
+    text-overflow: ellipsis;
+	white-space: nowrap;
+}
+/* 개별 검색 결과(li 내 text - 기점, 종점) */
+.search_container .bus_num_result_wrap .bus_num_result .bus_num_result_li .bus_num_result_li_st, .bus_num_result_li_ed {
+	width: 70px;
+	height:20px;
+	font-size: 1.5rem;
+	font-family: 'Do Hyeon', sans-serif;
+	overflow: hidden;
+    text-overflow: ellipsis;
+	white-space: nowrap;
+	float:left
+}
+/* 개별 검색 결과(li 내 text - 기점 종점 사이 화살표) */
+.search_container .bus_num_result_wrap .bus_num_result .bus_num_result_li .bus_num_result_li_arrow {
+	width: 30px;
+	height:20px;
+	font-size: 1.5rem;
+	font-family: 'Do Hyeon', sans-serif;
+	float:left
+}
+
+/* ========== 3. 노선도 ========== */
+.bus_info_container {
+	position: absolute;
+	top: 0;
+	left: 210px;
+	width: 900px;
+	height: 100%;
+	text-align: center;
+}
+/* ===== 3-1) 정방향 title ===== */
+.bus_info_container .up_title {
+	width: 450px;
+	height: 40px;
+	background-color: #ffcccc;
+	opacity: 0.8;
+	float: left;
+	cursor: pointer;
+}
+/* ===== 3-2) 역방향 title ===== */
+.bus_info_container .down_title {
+	width: 450px;
+	height: 40px;
+	background-color: grey;
+	opacity: 0.8;
+	float: left;
+	cursor: pointer;
+}
+/* 정.역방향 title 내 text */
+.bus_info_container p{
+	width: 100%;
+	height: 26px;
+	margin: 7px auto;
+	font-size: 2.3rem;
+	font-family: 'Do Hyeon', sans-serif;
+}
+/* ===== 3-3) 노선도 ===== */
+/* 반투명 박스 */
+.bus_info_container .line_container {
+	position: absolute;
+	top: 40px;
+	width: 900px;
+	height: 660px;
+	background-color: #ffcccc;
+	opacity: 0.8;
+	overflow-y: auto;
+}
+/* 반투명 박스 스크롤 설정 */
+.line_container::-webkit-scrollbar {
+    width: 15px;
+}
+.line_container::-webkit-scrollbar-thumb {
+    background-color: #F37B89;
+    border-radius: 20px;
+}
+.line_container::-webkit-scrollbar-track {
+    background-color: #F999A4;
+}
+/* 노선도 그릴 위치&크기 */
+.bus_info_container .line_container .line_wrap {
+	position: absolute;
+	top: 40px;
+	left: 40px;
+	width: 780px;
+	height: auto;
+	display: none;
+}
+/* 노선도 전체 정류장(ul) */
+.bus_stop_list{
+   list-style:none;
+   margin: 0;
+   padding: 0;
+}
+/* 노선도 개별 정류장(li) */
+/* 1-1) 가로노선 오른쪽 방향(->) */
+.line_container .line_wrap .bus_stop_h_right {
+	position: relative;
+	width: 90px;
+	height: 90px;
+	float: left;
+	list-style:none;
+}
+/* 1-2) 동그라미 icon */
+.line_container .line_wrap .bus_stop_h_right .circle {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20px;
+	height: 20px;
+	background-image: url("images/circle.png");
+	background-size: cover;
+	cursor: pointer;
+}
+/* 1-2) 동그라미 icon(경유역) */
+.line_container .line_wrap .bus_stop_h_right .circle_nonstop {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20px;
+	height: 20px;
+	background-image: url("images/circle_grey.png");
+	background-size: cover;
+}
+/* 1-3) 가로선 */
+.line_container .line_wrap .bus_stop_h_right .hline {
+	position: absolute;
+	top: 6px;
+	left: 17px;
+	width: 75px;
+	height: 20px;
+	background-image: url("images/hline.png");
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+}
+/* 1-4) 정류장 이름 */
+.line_container .line_wrap .bus_stop_h_right .station {
+	position: absolute;
+	top: 25px;
+	left: 0;
+	width: 80px;
+	height: 25px;
+	font-size: 1.7rem;
+	font-family: 'Do Hyeon', sans-serif;
+	text-align: left;
+	overflow: hidden;
+    text-overflow: ellipsis;
+	white-space: nowrap;
+}
+/* 2-1) 가로노선 왼쪽 방향(<-) */
+.line_container .line_wrap .bus_stop_h_left {
+	position: relative;
+	width: 90px;
+	height: 90px;
+	float: right;
+	list-style:none;
+}
+/* 2-2) 동그라미 icon */
+.line_container .line_wrap .bus_stop_h_left .circle {
+	position: absolute;
+	top: 0;
+	left: 70px;
+	width: 20px;
+	height: 20px;
+	background-image: url("images/circle.png");
+	background-size: cover;
+	cursor: pointer;
+}
+/* 2-2) 동그라미 icon(경유역) */
+.line_container .line_wrap .bus_stop_h_left .circle_nonstop {
+	position: absolute;
+	top: 0;
+	left: 70px;
+	width: 20px;
+	height: 20px;
+	background-image: url("images/circle_grey.png");
+	background-size: cover;
+}
+/* 2-3) 가로선 */
+.line_container .line_wrap .bus_stop_h_left .hline {
+	position: absolute;
+	top: 6px;
+	left: -2px;
+	width: 75px;
+	height: 100%;
+	background-image: url("images/hline.png");
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+}
+/* 2-4) 정류장 이름 */
+.line_container .line_wrap .bus_stop_h_left .station {
+	position: absolute;
+	top: 25px;
+	left: 80px;
+	width: 80px;
+	height: 25px;
+	font-size: 1.7rem;
+	font-family: 'Do Hyeon', sans-serif;
+	text-align: left;
+	overflow: hidden;
+    text-overflow: ellipsis;
+	white-space: nowrap;
+}
+/* 3-1) 세로노선 */
+.line_container .line_wrap .bus_stop_v {
+	position: relative;
+	width: 20px;
+	height: 90px;
+	float: left;
+	list-style:none;
+}
+/* 3-2) 동그라미 icon */
+.line_container .line_wrap .bus_stop_v .circle {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20px;
+	height: 20px;
+	background-image: url("images/circle.png");
+	background-size: cover;
+	cursor: pointer;
+}
+/* 3-2) 동그라미 icon(경유역) */
+.line_container .line_wrap .bus_stop_v .circle_nonstop {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20px;
+	height: 20px;
+	background-image: url("images/circle_grey.png");
+	background-size: cover;
+}
+/* 3-3) 세로선 */
+.line_container .line_wrap .bus_stop_v .vline {
+	position: absolute;
+	top: 17px;
+	left: 6px;
+	width: 100%;
+	height: 75px;
+	background-image: url("images/vline.png");
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+}
+/* 3-4) 정류장 이름 */
+.line_container .line_wrap .bus_stop_v .station {
+	position: absolute;
+	top: 25px;
+	left: 0;
+	width: 80px;
+	height: 25px;
+	font-size: 1.7rem;
+	font-family: 'Do Hyeon', sans-serif;
+	text-align: left;
+	overflow: hidden;
+    text-overflow: ellipsis;
+	white-space: nowrap;
+}
+/* 4-1) 노선 마지막 오른쪽 방향(->) */
+.line_container .line_wrap .bus_stop_last_right {
+	position: relative;
+	width: 20px;
+	height: 70px;
+	float: left;
+	list-style:none;
+}
+/* 4-2) 동그라미 icon */
+.line_container .line_wrap .bus_stop_last_right .circle {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20px;
+	height: 20px;
+	background-image: url("images/circle.png");
+	background-size: cover;
+	cursor: pointer;
+}
+/* 4-3) 정류장 이름 */
+.line_container .line_wrap .bus_stop_last_right .station {
+	position: absolute;
+	top: 25px;
+	left: 0;
+	width: 80px;
+	height: 25px;
+	font-size: 1.7rem;
+	font-family: 'Do Hyeon', sans-serif;
+	text-align: left;
+	overflow: hidden;
+    text-overflow: ellipsis;
+	white-space: nowrap;
+}
+/* 5-1) 노선 마지막 왼쪽 방향(<-) */
+.line_container .line_wrap .bus_stop_last_left {
+	position: relative;
+	width: 20px;
+	height: 70px;
+	float: right;
+	list-style:none;
+}
+/* 5-2) 동그라미 icon */
+.line_container .line_wrap .bus_stop_last_left .circle {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20px;
+	height: 20px;
+	background-image: url("images/circle.png");
+	background-size: cover;
+	cursor: pointer;
+}
+/* 5-3) 정류장 이름 */
+.line_container .line_wrap .bus_stop_last_left .station {
+	position: absolute;
+	top: 25px;
+	left: 0;
+	width: 80px;
+	height: 25px;
+	font-size: 1.7rem;
+	font-family: 'Do Hyeon', sans-serif;
+	text-align: left;
+	overflow: hidden;
+    text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+
+/* 정류장 이름에 mouse over 시 보여줄 전체 이름 */
+.station_hover {
+	position: absolute;
+	display: none;
+	width: auto;
+	height: 25px;
+	font-size: 2rem;
+	font-family: 'Do Hyeon', sans-serif;
+	text-align: left;
+}
+
+/* 노선도에 버스 위치 표시할 버스 icon */
+.icon_bus_img {
+	position: absolute;
+	display: none;
+	width: 25px;
+	height: 25px;
+ 	background-image: url(images/icon_bus.png);
+	background-size: cover;
+}
+
+
+/* 툴팁 : 정류장별 동그라미 icon 클릭 시 보여 줄 버스 도착 예상 시간 */
+.popup_layer {
+	position: absolute;
+	display: none;
+	width: 250px;
+	height: 100px;
+}
+/* 말풍선 */
+.popup_img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+}
+/* 말풍선 이미지 */
+.popup_img img{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+/* 말풍선 내 text */
+.popup_img .popup_content {
+	position: absolute;
+	top: 8px;
+	left: 20px;
+	width: 230px;
+	font-size: 1.7rem;
+	font-family: Do Hyeon;
+}
+/* 말풍선 내 text(예상시간, pred_time) */
+.popup_img .popup_content p{
+	margin: 0;
+}
+/* 엑스박스 */
+.popup_layer .popup_close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 10px;
+	height: 10px;
+ 	background-image: url("images/icon_close.png");
+	background-size: cover; 
+	cursor:pointer;
+}
