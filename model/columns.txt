@@ -150,7 +150,6 @@ pred_time
 2020008800
 2020009700
 2020009800
-2020009900
 2020009901
 2020009902
 2020009903
@@ -220,8 +219,6 @@ min
 dayofweek
 weekend
 bus_stop_경기일보
-bus_stop_고등동주민센터
-bus_stop_글로벌청소
 bus_stop_농천교회
 bus_stop_동성아울렛
 bus_stop_수원kt

@@ -25,9 +25,7 @@ import sys
 
 def pred_time(stationId):
 
-    if stationId == "202000223": bus_stop = '고등동주민센터'
-    elif stationId == "202000204": bus_stop = '글로벌청소'
-    elif stationId == "200000188": bus_stop = '장안문'
+    if stationId == "200000188": bus_stop = '장안문'
     elif stationId == "200000186": bus_stop = '수원kt'
     elif stationId == "200000078": bus_stop = '수일중학교'
     elif stationId == "200000194": bus_stop = '경기일보'

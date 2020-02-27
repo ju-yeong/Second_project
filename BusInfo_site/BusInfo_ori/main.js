@@ -256,7 +256,7 @@ $(function(){
 		var station_id = $(this).parents('li').attr('id');
 
 		// 머신러닝 모델로 분석할 7770 버스 정류장 id 
-		var bus_stop_availabel_up = new Array("202000223","202000204","200000188","200000186","200000078"); // 정방향 5개
+		var bus_stop_availabel_up = new Array("200000188","200000186","200000078"); // 정방향 3개
 		var bus_stop_availabel_down = new Array("200000194","200000271","200000183","202000220","202000217"); // 역방향 5개
 		
 		// 현재 노선도의 정.역방향 여부
@@ -459,18 +459,18 @@ function bus_loca() {
 					if (line_type === "bus_stop_h_right"){
 						$(`#bus${data[i]}`).css({
 							"top": "-3px",
-							"left": "50px",
+							"left": "40px",
 						}).show();
 					// 가로노선 왼쪽 방향일 경우
 					} else if (line_type === "bus_stop_h_left"){
 						$(`#bus${data[i]}`).css({
 							"top": "-3px",
-							"right": "50px",
+							"right": "40px",
 						}).show();
 					// 세로노선일 경우
 					} else if (line_type === "bus_stop_v"){
 						$(`#bus${data[i]}`).css({
-							"top": "50px",
+							"top": "40px",
 							"left": "-3px",
 						}).show();
 					// 마지막 정류장 오른쪽 방향일 경우

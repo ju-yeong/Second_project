@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 public class PredRealTime extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 머신러닝 모델로 7770 노선의 10개 정류장에 버스 도착 예상 시간 분석하기(툴팁에 보여줄 내용)
+		// 머신러닝 모델로 7770 노선의 8개 정류장에 버스 도착 예상 시간 분석하기(툴팁에 보여줄 내용)
 		
 		// ajax에서 보낸 parameter 가져오기
 		String station_id = request.getParameter("station_id");
